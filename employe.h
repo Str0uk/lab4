@@ -2,7 +2,7 @@
 #define EMPLOYE_H
 
 #include <QString>
-
+enum Sex { MAN, WOMAN};
 
 struct Employe
 {
@@ -10,7 +10,7 @@ struct Employe
     QString full_name;
     int birth_year;
     int age() const { return 2022 - birth_year; };
-
+    Sex sex;
 
 };
 

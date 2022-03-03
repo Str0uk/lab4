@@ -23,12 +23,13 @@ std::vector<Employe> CSVReader::readAll(){
 
 
                 if (line != "") {
-                    auto v = split(line, ';'); // {"1", "Ford Focus", "0", "2004"}
+                    auto v = split(line, ';');
 
                     Employe employee;
                     employee.id = std::stoi(v[0]);
                     employee.full_name = QString::fromStdString(v[1]);
                     employee.birth_year = std::stoi(v[2]);
+                    employee.sex = static_cast<Sex>(std::stoi(v[3]));
 
                     result.push_back(employee);
                 }

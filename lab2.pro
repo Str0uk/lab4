@@ -10,12 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     csvreader.cpp \
+    csvwritter.cpp \
     employe.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     csvreader.h \
+    csvwritter.h \
     employe.h \
     mainwindow.h
 

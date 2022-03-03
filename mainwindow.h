@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <vector>
+
 #include <employe.h>
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +21,7 @@ public:
 
 public slots:
     void SearchEmploye();
+    void AddEmploye();
 
 private:
     Ui::MainWindow *ui;

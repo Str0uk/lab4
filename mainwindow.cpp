@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <csvreader.h>
+#include <csvwritter.h>
 #include <iostream>
 #include <QDebug>
 
@@ -14,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //Открытие файла
     CSVReader csv("C:\\content\\OOP\\lab2\\lab2\\database.csv");
-    qDebug() << csv.is_open();
     if (csv.is_open()){
 
         //Чтение из файла в вектор
@@ -46,3 +46,28 @@ void MainWindow::SearchEmploye(){
         }
     }
 }
+
+// Обработчик нажатия на кнопку ButtonAdd
+void MainWindow::AddEmploye(){
+    Employe em;
+    em.id = ui->EditID->text().toInt();
+    em.full_name = ui->EditName->text();
+    em.birth_year = ui->EditYear->text().toInt();
+    em.sex = static_cast<Sex>(ui->comboSex->currentIndex());
+
+
+    employes.push_back(em);
+
+    CSVWritter csv("C:\\content\\OOP\\lab2\\lab2\\updated_database.csv");
+
+    csv.write(employes);
+
+    ui->textBrowser->clear();
+    ui->textBrowser->append("Person is added.");
+    ui->EditID->clear();
+    ui->EditName->clear();
+    ui->EditYear->clear();
+
+}
+// добавлееие нового сотрудника в вектор
+// Класс EmployeCSVWriter
