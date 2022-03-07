@@ -13,7 +13,8 @@ SOURCES += \
     csvwritter.cpp \
     employe.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    split.cpp
 
 HEADERS += \
     csvreader.h \
