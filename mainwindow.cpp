@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "mybrowser.h"
 
 #include <csvreader.h>
 #include <csvwritter.h>
@@ -39,7 +40,9 @@ MainWindow::~MainWindow()
 //Поиск по фамилии
 void MainWindow::SearchEmploye(){
     ui->textBrowser->clear(); //Очищение браузера от продыдущих поисков.
-    ui->textBrowser->append("Searching..");
+
+    ui->textBrowser->GreenText("Searching..");
+    //ui->textBrowser->append("Searching..");
     for (const auto &e: employes) {
         if (e.full_name == ui->editSearch->text()){
             ui->textBrowser->append("ID: " + QString::number(e.id) + ", " + e.full_name + ", " + QString::number(e.age()) + " years");
@@ -63,7 +66,7 @@ void MainWindow::AddEmploye(){
     csv.write(employes);
 
     ui->textBrowser->clear();
-    ui->textBrowser->append("Person is added.");
+    ui->textBrowser->RedText("Person is added.");
     ui->EditID->clear();
     ui->EditName->clear();
     ui->EditYear->clear();

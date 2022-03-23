@@ -20,3 +20,12 @@ void CSVWritter::write(std::vector<Employe> em){
 CSVWritter::~CSVWritter(){
     fout.close();
 }
+
+CSVWritter& CSVWritter::operator=(CSVWritter&& orher){
+    fout = std::move(orher.fout);
+    return *this;
+}
+
+CSVWritter::CSVWritter(CSVWritter&& orther){
+    fout = std::move(orther.fout);
+}

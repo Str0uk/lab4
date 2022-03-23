@@ -42,5 +42,15 @@ std::vector<Employe> CSVReader::readAll(){
             return result;
 }
 
+CSVReader& CSVReader::operator=(CSVReader&& orher){
+    fin = std::move(orher.fin);
+    return *this;
+}
+
+CSVReader::CSVReader(CSVReader&& orther){
+    fin = std::move(orther.fin);
+}
+
+
 
 
